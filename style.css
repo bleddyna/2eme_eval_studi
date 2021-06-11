@@ -5,6 +5,7 @@
 body{
     margin: 0;
     padding: 0;
+    background-color: lightblue!important;
 }
 .wrapper{
     width: 100%;
@@ -12,6 +13,12 @@ body{
 }
 #new-game{
     height: 10vh;
+}
+#new-game button{
+    margin-left: 40vw;
+    width: 20vw;
+    border: 1px solid black;
+    padding: 3px;
 }
 #show-players{
     height: 20vh;
