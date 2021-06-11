@@ -20,6 +20,12 @@ body{
 #actual-score{
     height: 35vh;
 }
+#actualScorePlayer1,
+#actualScorePlayer2,
+#currentScorePlayer1,
+#currentScorePlayer2{
+    font-size: 88px;
+}
 #current-score{
     height: 30vh;
 }
