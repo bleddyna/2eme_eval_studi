@@ -1,3 +1,25 @@
 *{
     font-family: 'Lato', sans-serif;
+    text-align: center;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+.wrapper{
+    width: 100%;
+    height: 100%;
+}
+#new-game{
+    height: 10vh;
+}
+#show-players{
+    height: 20vh;
+    margin: 2vh 0;
+}
+#actual-score{
+    height: 35vh;
+}
+#current-score{
+    height: 30vh;
 }
