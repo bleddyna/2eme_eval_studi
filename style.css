@@ -44,3 +44,12 @@ img{
     margin-left: 33%;
     margin-top: 15%;
 }
+#rollDice,
+#holdDice{
+    cursor: pointer;
+}
+#result > img{
+    margin-top: 5%;
+    width: 70%;
+    height: auto;
+}
