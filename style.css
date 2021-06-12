@@ -5,7 +5,6 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: lightblue!important;
 }
 .wrapper{
     width: 100%;
@@ -33,6 +32,15 @@ body{
 #currentScorePlayer2{
     font-size: 88px;
 }
+
 #current-score{
     height: 30vh;
+}
+
+img{
+    margin-left: 15%;
+}
+.actualScore{
+    margin-left: 33%;
+    margin-top: 15%;
 }
