@@ -10,4 +10,5 @@
 14/06 10:40 -> pause
 14/06 20:30 -> reprise
 14/06 23:30 -> fin de journée
-16/13:58 -> début 4eme journée
+16/06 13:58 -> début 4eme journée
+16/06 16:00 -> pause
