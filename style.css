@@ -10,15 +10,7 @@ body{
     width: 100%;
     height: 100%;
 }
-#new-game{
-    height: 10vh;
-}
-#new-game button{
-    margin-left: 40vw;
-    width: 20vw;
-    border: 1px solid black;
-    padding: 3px;
-}
+
 #show-players{
     height: 20vh;
     margin: 2vh 0;
@@ -53,3 +45,19 @@ img{
     width: 70%;
     height: auto;
 }
+/*LES BOUTONS*/
+.header-button button{
+    display: inline;
+    margin: 3% 2%;
+    color: rgb(250, 251, 252);
+    border: 1px solid teal;
+    border-radius: 4px;
+    background-color: rgb(74, 124, 124);
+    transition: padding 0.5s ease;
+    height: 10vh;
+}
+.header-button button:hover{
+    background-color: rgb(14, 77, 77);
+    color:white;
+    padding: 2% 20%;
+}   
