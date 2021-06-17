@@ -15,3 +15,4 @@
 16/06 21:40 -> reprise
 16/06 22:00 -> fin 4eme journée
 17/06 9:55 -> début 5eme journée
+17/06 10:47 -> pause
