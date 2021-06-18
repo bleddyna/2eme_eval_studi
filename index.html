@@ -15,73 +15,40 @@
     >
 </head>
 <body>
-    <div class="wrapper">
-        <!-- Header new game -->
-        <div class="row header-button">
-            <div class="col-6">
-                <button id="new-game">New game</button>
-            </div>
-            <div class="col-6">
-                <button >Rules</button>
-            </div>
-        </div>
+    <div class='w-100 h-100'>
         <div class="row">
-          <div class="col">
-            <!-- bloc gauche -->
-            <div class="row">
-                <!-- joueur 1 -->
-                <h1>Player 1</h1>
-                <img src="" alt="Player1"class="w-75">
+          <div class="col-4">
+            <!-- player1 -->
+         <div class="row-4 player active-player active"id="player1">
+              <h1>player 1</h1>
             </div>
-            <div class="col-4 actualScore">
-                <!-- score actuel du joueur 1 -->
-                <h5>SCORE:</h5>
-                <div id="actualScorePlayer1">
-                    <span>0</span>
-                </div>
+            <div class="row-4 global">global score</div>
+            <div class="row-4 current">
+                <h2>Current score</h2>
             </div>
-          </div>
-          <div class="col col-4"id="result">
-            <!-- bloc centre -->
-          </div>
-          <!-- bloc droit -->
-          <div class="col">
-            <div class="row">
-                <!-- joueur 2 -->
-                <h1>Player 2</h1>
-                <img src="" alt="Player2"class="w-75">
             </div>
-            <div class="col-4 actualScore">
-                <!-- score actuel du joueur -2 -->
-                <h5>SCORE:</h5>
-                <div id="actualScorePlayer2">
-                    <span>0</span>
-                </div>
-            </div>
-          </div>
+          <div class="col-4">
+        <div class="row-4 "id="new-game"><button>Nouvelle partie</button></div>
+        <div class="row-4"id="result">
+            <img >
         </div>
-        <!-- Current score -->
-        <div class="row"id="current-score">
-            <div class="col-4">
-                <!-- score général du joueur 1 -->
-                <h5>Current score:</h5>
-                <div id="currentScorePlayer1">
-                    <span>0</span>
-                </div>
-            </div>
-            <div class="col-4">
-                <h3 id="rollDice">Roll dice</h3>
-                <br>
-                <h3 id="holdDice">Hold</h3>
-            </div>
-            <div class="col-4">
-                <!-- score général du joueur 2 -->
-                <h5>Current score:</h5>
-                <div id="currentScorePlayer2">
-                    <span>0</span>
-                </div>
-            </div>
+        <div class="row-4">
+            <button id=rDice>Roll dice</button>
+            <br>
+            <button id="hDice">Hold dice</button>
         </div>
+            </div>
+            <!-- player2 -->
+          <div class="col-4">
+            <div class="row-4 player"id="player2">
+              <h1>player 2</h1>
+            </div>
+            <div class="row-4 global">global score</div>
+            <div class="row-4 current">
+                <h2>Current score</h2>
+            </div>
+            </div>
+    </div>
     </div>
         <!-- script -->
     <script src="script.js"></script>

@@ -8,26 +8,18 @@
 // Le premier joueur qui atteint les 100 points sur global gagne le jeu.
 //new game
 const nGame = document.querySelector('#new-game');
-//Actual score
-const aScoreP1 = document.querySelector('#actualScorePlayer1');
-const aScoreP2 = document.querySelector('#actualScorePlayer2');
-//Current Score
-const cScoreP1 = document.querySelector('#currentScorePlayer1');
-const cScoreP2 = document.querySelector('#currentScorePlayer2');
 //Roll dice
-const rollDice = document.querySelector('#rollDice');
+const rollDice = document.querySelector('#rDice');
 //Hold dice
-const holdDice = document.querySelector('#holdDice');
-
+const holdDice = document.querySelector('#hDice');
+const current = document.querySelector('.current');
+//------------------------------
 
 //------------------------------
 //Nouvelle partie
 const init = () => {
     if (confirm("Nouvelle partie?")) {
-        cScoreP1.textContent = 0;
-        cScoreP2.textContent = 0;
-        aScoreP1.textContent = 0;
-        aScoreP2.textContent = 0;
+        console.log('lol');
       }      
 };
 // Bouton nouvelle partie
@@ -52,28 +44,22 @@ var randomImage = [
 var number = Math.floor(Math.random()*randomImage.length);  
 //Affichage des points
 var pointsDice = randomImage.indexOf(randomImage[number])+1;
-
-
-if (cScoreP1.textContent!=1 || cScoreP2.textContent == 1) {
-  player1();
-}else if(cScoreP2.textContent !=1 || cScoreP1.textContent == 1){
-    player2();
+    
+if(pointsDice ==1){
+    current.innerHTML = '<h2>Current score</h2><br><h3> 0</h3>';
+    nextPlayer();
+}else{
+    current.innerHTML = '<h2>Current score</h2><br><h3>' + pointsDice + '</h3>';
 }
-  function player1() {
-    var curScoreP1 = cScoreP1.textContent;
-    cScoreP1.textContent = pointsDice;
-    var actuScoreP1 = aScoreP1.textContent;
-    aScoreP1.textContent = parseInt(actuScoreP1)+pointsDice;
-  }
-  function player2() {
-    var curScoreP2 = cScoreP2.textContent;
-    cScoreP2.textContent = pointsDice;
-    var actuScoreP2 = aScoreP2.textContent;
-    aScoreP2.textContent = parseInt(actuScoreP2)+pointsDice;
-  }
+function nextPlayer() {
+    document.querySelector('.active-player').classList.remove('.active');
+    document.querySelector('.player') = document.querySelector('#player1')? document.querySelector('#player1'):document.querySelector('#player2');
+    document.querySelector('.player').classList.add('.active');
+
+}
 //Affichage de l'image du dès
 document.getElementById("result").innerHTML = '<img src="'+randomImage[number]+'" />';  
-}
+};
 rollDice.addEventListener('click',getRandomImage);
 //------------------------------
 
