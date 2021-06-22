@@ -6,30 +6,38 @@
 // - Cliquer sur l’option “Hold”, qui permet d’envoyer les points du ROUND vers le GLOBAL. Ce sera alors le tour de l’autre joueur.
 // - Lancer le dé. S’il obtient un 1, son score ROUND est perdu et c’est la fin de son tour.
 // Le premier joueur qui atteint les 100 points sur global gagne le jeu.
-//new game
-const nGame = document.querySelector('#new-game');
-//Roll dice
-const rollDice = document.querySelector('#rDice');
-//Hold dice
-const holdDice = document.querySelector('#hDice');
-const current = document.querySelector('.current');
 //------------------------------
-
+//les variables
+const newGame = document.querySelector('#new-game');
+var player1 = document.querySelector('#player1');
+var globalP1 = document.querySelector('#player1GlobalScore');
+var globalP2 = document.querySelector('#player2GlobalScore');
+var currentP1 = document.querySelector('#player1CurrentScore');
+var currentP2 = document.querySelector('#player2CurrentScore');
+var player2 = document.querySelector('#player2');
+const result = document.querySelector('#result');
+const global = document.querySelector('.global');
+const roll = document.querySelector('#rDice');
+const hold = document.querySelector('#hDice');
+var activePlayer = player1;
 //------------------------------
 //Nouvelle partie
 const init = () => {
     if (confirm("Nouvelle partie?")) {
-        console.log('lol');
-      }      
+        nGame();
+      }
 };
-// Bouton nouvelle partie
-nGame.addEventListener("click", init);
-
-
+//restart the game
+const nGame = () => {
+  globalP1.textContent = '0';
+  globalP2.textContent = '0';
+  currentP1.textContent = '0';
+  currentP2.textContent = '0';
+  document.querySelector('.active').lastElementChild.innerHTML = '<h2>Current score</h2><h3>0</h3>';
+}
+// Bouton nouv*elle partie
+newGame.addEventListener("click", init);
 //------------------------------
-//lancé du dés
-const rDice = document.querySelector('#rollDice');
-function getRandomImage() {  
 //declare an array to store the images  
 var randomImage = [
     "img/face1.png",
@@ -40,35 +48,37 @@ var randomImage = [
     "img/face6.png"
 ];  
 
+//lancé du dés
+function getRandomImage() {  
+
 //Variable aléatoire du numéros  
 var number = Math.floor(Math.random()*randomImage.length);  
 //Affichage des points
-var pointsDice = randomImage.indexOf(randomImage[number])+1;
-    
-if(pointsDice ==1){
-    current.innerHTML = '<h2>Current score</h2><br><h3> 0</h3>';
-    nextPlayer();
-}else{
-    current.innerHTML = '<h2>Current score</h2><br><h3>' + pointsDice + '</h3>';
+let pointsDice = randomImage.indexOf(randomImage[number])+1;
+  result.innerHTML = '<h1>' +pointsDice+'</h1>';
+  if(pointsDice == 1){
+    document.querySelector('.active').lastElementChild.innerHTML = '<h2>Current score</h2><h3>0</h3>';
+    changePlayer();
+  }else{
+    document.querySelector('.active').lastElementChild.innerHTML = '<h2>Current score</h2><h3>'+pointsDice+'</h3>';
+    }
 }
-function nextPlayer() {
-    document.querySelector('.active-player').classList.remove('.active');
-    document.querySelector('.player') = document.querySelector('#player1')? document.querySelector('#player1'):document.querySelector('#player2');
-    document.querySelector('.player').classList.add('.active');
-
+//------------------------------
+//savoir quel joueur joue
+var changePlayer = () => {
+    activePlayer.classList.remove('active');
+    activePlayer =(activePlayer == player1)?player2:player1;
+    activePlayer.classList.add('active');
+    document.querySelector(".active").lastElementChild.innerHTML = '<h2>Current score</h2><h3>'+pointsDice+'</h3>';
 }
-//Affichage de l'image du dès
-document.getElementById("result").innerHTML = '<img src="'+randomImage[number]+'" />';  
-};
-rollDice.addEventListener('click',getRandomImage);
-//------------------------------
+roll.addEventListener('click', getRandomImage);
 
 //------------------------------
-// //Hold dice
-// const hDice = ()=>{
-//     //action
-// };
-// holdDice.addEventListener("click",hDice);
-
-
-//------------------------------
+const hDice = ()=>{
+  //save the current score of player -> add current score to global score
+  var globalScore = activePlayer.getElementsByTagName('div')[1] +  document.querySelector('.active').lastElementChild;
+  global.innerHTML = global.nodeValue;
+  current = 0;
+  (global >= 100) ? eGame() : changePlayer();
+}
+hold.addEventListener('click', hDice);
