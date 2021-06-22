@@ -15,41 +15,50 @@
     >
 </head>
 <body>
-    <div class='w-100 h-100'>
-        <div class="row">
-          <div class="col-4">
-            <!-- player1 -->
-         <div class="row-4 player active-player active"id="player1">
-              <h1>player 1</h1>
-            </div>
-            <div class="row-4 global">global score</div>
-            <div class="row-4 current">
-                <h2>Current score</h2>
-            </div>
-            </div>
-          <div class="col-4">
-        <div class="row-4 "id="new-game"><button>Nouvelle partie</button></div>
-        <div class="row-4"id="result">
-            <img >
+  <div class='w-100 h-100'>
+    <div class="row">
+        <!-- player1 -->
+        <div class="col-4 active"id="player1">
+          <div class="row-4">
+                <h1>player 1</h1>
+          </div>
+          <div class="row-4 global">
+            <h2>Global score</h2>
+              <h3 id="player1GlobalScore"></h3>
+          </div>
+          <div class="row-4 current">
+            <h2>Current score</h2>
+            <h3 id="player1CurrentScore">0</h3>
+          </div>
         </div>
-        <div class="row-4">
-            <button id=rDice>Roll dice</button>
-            <br>
-            <button id="hDice">Hold dice</button>
-        </div>
-            </div>
-            <!-- player2 -->
-          <div class="col-4">
-            <div class="row-4 player"id="player2">
-              <h1>player 2</h1>
-            </div>
-            <div class="row-4 global">global score</div>
-            <div class="row-4 current">
-                <h2>Current score</h2>
-            </div>
-            </div>
+        <!--milieu-->
+    <div class="col-4">
+      <div class="row-4 "id="new-game"><button>Nouvelle partie</button>
+      </div>
+      <div class="row-4"id="result">   
+      </div>
+      <div class="row-4">
+        <button id=rDice>Roll dice</button>
+        <br>
+        <button id="hDice">Hold dice</button>
+      </div>
     </div>
+        <!-- player2 -->
+    <div class="col-4"id="player2">
+      <div class="row-4">
+          <h1>player 2</h1>
+      </div>
+      <div class="row-4 global">
+        <h2>Global score</h2>
+          <h3 id='player2GlobalScore'></h3>
+      </div>
+      <div class="row-4 current">
+        <h2>Current score</h2>
+        <h3 id="player2CurrentScore">0</h3>
+      </div>
     </div>
+  </div>
+</div>
         <!-- script -->
     <script src="script.js"></script>
     <script
