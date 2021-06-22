@@ -15,11 +15,12 @@ var globalP2 = document.querySelector('#player2GlobalScore');
 var currentP1 = document.querySelector('#player1CurrentScore');
 var currentP2 = document.querySelector('#player2CurrentScore');
 var player2 = document.querySelector('#player2');
-const result = document.querySelector('#result');
-const global = document.querySelector('.global');
+let current = document.querySelector('.current');
 const roll = document.querySelector('#rDice');
 const hold = document.querySelector('#hDice');
 var activePlayer = player1;
+let globalScore = document.querySelector(".active").getElementsByTagName('div')[1];
+let currentScore = document.querySelector(".active").lastElementChild;
 //------------------------------
 //Nouvelle partie
 const init = () => {
@@ -38,6 +39,7 @@ const nGame = () => {
 // Bouton nouv*elle partie
 newGame.addEventListener("click", init);
 //------------------------------
+
 //declare an array to store the images  
 var randomImage = [
     "img/face1.png",
@@ -47,15 +49,14 @@ var randomImage = [
     "img/face5.png",
     "img/face6.png"
 ];  
-
 //lancé du dés
 function getRandomImage() {  
 
 //Variable aléatoire du numéros  
 var number = Math.floor(Math.random()*randomImage.length);  
 //Affichage des points
-let pointsDice = randomImage.indexOf(randomImage[number])+1;
-  result.innerHTML = '<h1>' +pointsDice+'</h1>';
+var pointsDice = randomImage.indexOf(randomImage[number])+1;
+  document.getElementById('result').innerHTML = '<img src='+randomImage[number]+ '>';
   if(pointsDice == 1){
     document.querySelector('.active').lastElementChild.innerHTML = '<h2>Current score</h2><h3>0</h3>';
     changePlayer();
@@ -69,16 +70,23 @@ var changePlayer = () => {
     activePlayer.classList.remove('active');
     activePlayer =(activePlayer == player1)?player2:player1;
     activePlayer.classList.add('active');
-    document.querySelector(".active").lastElementChild.innerHTML = '<h2>Current score</h2><h3>'+pointsDice+'</h3>';
+    document.querySelector(".active").lastElementChild.innerHTML = '<h2>Current score</h2><h3>'+ pointsDice+'</h3>';
 }
 roll.addEventListener('click', getRandomImage);
 
 //------------------------------
 const hDice = ()=>{
   //save the current score of player -> add current score to global score
-  var globalScore = activePlayer.getElementsByTagName('div')[1] +  document.querySelector('.active').lastElementChild;
-  global.innerHTML = global.nodeValue;
+  global = global + current;
+  globalScore.textContent = global;
+  currentScore.textContent = 0; 
   current = 0;
-  (global >= 100) ? eGame() : changePlayer();
+  (global >= 100) ? endGame() : changePlayer();
 }
 hold.addEventListener('click', hDice);
+
+//--------------------------------
+const endGame = () => {
+    result = (activePlayer == player1)?player1:player2;
+    result.innerHTML = "<h1>c\'est gagné!!!!!</h1>";
+}

@@ -6,12 +6,18 @@
     background:lightblue;
 }
 #result{
-    height: 50%;
-    margin-top: 15%;
+    height: 25%;
+}
+#result img{
+    width: 50%;
+    margin-top: 3%;
 }
 #player1,#player2{
     height: 15%;
 }
 .global,.current{
     height: 25%;
+}
+.button{
+    margin-top: 35%;
 }
