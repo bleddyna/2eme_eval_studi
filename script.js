@@ -42,7 +42,7 @@ function init() {
 //--------------------------------
 function endGame() {
 	activePlayer = (activePlayer == player1) ? player1 : player2;
-	result.innerHTML = "<h1>c\'est gagné!!!!!</h1>";
+	result.innerHTML = "<h1>"+ (activePlayer == player1?player1.id:player2.id) +" a gagné!!!!!</h1>";
 }
 //------------------------------
 function rDice() {
@@ -76,11 +76,11 @@ function hDice() {
 	if (activePlayer == player1) {
 		globalP1.textContent = parseInt(globalP1.textContent) + parseInt(currentP1.textContent);
 		currentP1.textContent =  0;
-		globalP1.textContent >= 10 ? endGame(): changePlayer();
+		globalP1.textContent >= 5 ? endGame(): changePlayer();
 	} else {
 		globalP2.textContent =parseInt(globalP2.textContent) +parseInt(currentP2.textContent);
 		currentP2.textContent =  0;
-		globalP2.textContent >= 10 ? endGame(): changePlayer();
+		globalP2.textContent >= 5 ? endGame(): changePlayer();
 	}
 }
 //------------------------------
