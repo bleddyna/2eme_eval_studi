@@ -18,8 +18,6 @@ var player2 = document.getElementById('player2');
 const roll = document.getElementById('rDice');
 const hold = document.getElementById('hDice');
 var activePlayer = player1;
-let globalScore = activePlayer.getElementsByTagName('div')[1];
-let currentScore = activePlayer.getElementsByTagName('div')[2];
 var result = document.getElementById('result');
 //---------------------------------
 var randomImage = [
@@ -38,7 +36,7 @@ function init() {
 		globalP2.textContent = '0';
 		currentP1.textContent = '0';
 		currentP2.textContent = '0';
-		currentScore.innerHTML = '<h2>Current score</h2><h3>0</h3>';
+		activePlayer.getElementsByTagName('div')[2].innerHTML = '<h2>Current score</h2><h3>0</h3>';
 
 	}
 }
@@ -54,10 +52,10 @@ function rDice() {
 	//Affichage des points
 	result.innerHTML = '<img src=' + randomImage[number] + '>';
 	if (pointsDice == 1) {
-		currentScore.innerHTML = '<h2>Current score</h2><h3>0</h3>';
+		activePlayer.getElementsByTagName('div')[2].innerHTML = '<h2>Current score</h2><h3>0</h3>';
 		changePlayer();
 	} else {
-		currentScore.innerHTML = '<h2>Current score</h2><h3>' + parseInt(pointsDice) + '</h3>';
+		activePlayer.getElementsByTagName('div')[2].innerHTML = '<h2>Current score</h2><h3>' + parseInt(pointsDice) + '</h3>';
 	}
 }
 //------------------------------
@@ -65,14 +63,14 @@ function changePlayer() {
 	activePlayer.classList.remove('active');
 	activePlayer = (activePlayer == player1) ? player2 : player1;
 	activePlayer.classList.add('active');
-	currentScore.innerHTML = '<h2>Current score</h2><h3>0</h3>';
+	activePlayer.getElementsByTagName('div')[2].innerHTML = '<h2>Current score</h2><h3>0</h3>';
 }
 //------------------------------
 function hDice() {
-	globalScore = globalScore + currentScore;
-	globalScore.textContent = globalScore;
-	currentScore.innerHTML = '<h2>Current score</h2><h3>'+currentScore+'</h3>';
-	(globalScore >= 100) ? endGame(): changePlayer();
+	activePlayer.getElementsByTagName('div')[1] = activePlayer.getElementsByTagName('div')[1] + activePlayer.getElementsByTagName('div')[2];
+	activePlayer.getElementsByTagName('div')[1].innerHTML = 	activePlayer.getElementsByTagName('div')[1].id.value= '0';
+	activePlayer.getElementsByTagName('div')[2].innerHTML = activePlayer.getElementsByTagName('div')[2].id.value = '0';
+	(activePlayer.getElementsByTagName('div')[2] >= 100) ? endGame(): changePlayer();
 }
 //------------------------------
 newGame.addEventListener("click", init);
