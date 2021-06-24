@@ -32,4 +32,5 @@ weekend du 19-20/06 -> 2h
 24/06 12:40 -> début de la 7eme journée
 24/06 16:26 -> pause
 24/06 17:37 -> reprise
-24-06 19:56 -> fin du DS
+24/06 19:56 -> fin du DS
+24/06 22:14 -> reprise pour correctif après mise en ligne
