@@ -1,16 +1,46 @@
-@media (min-width: 576px){
+@media (min-width: 576px) and (orientation: landscape){
     h1 { 
-        font-size: 2em;
+        font-size: 2em!important;
     }
     h2 {
-        font-size: 1.5em;
+        font-size: 1.5em!important;
     }
     h3 {
-        font-size: 1.17em;
+        font-size: 1.17em!important;
     }
-        #hDice,
-        #rDice,
-        #new-game button{
-    margin: 1% 0;
-    width: auto;
+#current{
+    height: 15%;
+}
+.active{
+    height: 100%;
+}
+button{
+    border-radius: 10px!important;
+    font-size: 1.1em!important;
+}
+@media (min-width: 576px) and (max-width:767px) and (orientation: portrait){
+    #player1,.middle,#player2,.button{
+        display: none;
+    }
+    #message{
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: black;
+    }
+    .rectangle{
+        height: 150px;
+        width: 300px;
+        border: 2px solid teal;
+        position: absolute;
+        top: 258px;
+        left: 20%;
+        border-radius: 15% ;
+        animation: 1.9s infinite alternate anim;
+    }
+    @keyframes anim {
+        from { transform: rotateZ(90deg); }
+        to   { transform: rotateZ(0deg); }
+      }
 }

@@ -40,6 +40,8 @@ button{
     border-radius: 50px!important;
     border: none;
     background-color: lightseagreen;
+    font-size: 3.9em!important;
+    padding: 10px;
     color: lightyellow;
     transition: all 0.9s ease;
 }
