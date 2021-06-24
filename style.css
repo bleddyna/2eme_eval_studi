@@ -78,7 +78,7 @@ button:hover{
 #message{
     display: none;
 }
-@media (min-width: 576px) and (max-width:767px) and screen and (orientation: portrait){
+@media (min-width: 576px) and (max-width:767px) and (orientation: portrait){
     h1 { font-size: 2em; }
     h2 { font-size: 1.5em; }
     h3 { font-size: 1.17em; }
@@ -87,7 +87,6 @@ button:hover{
         #new-game button{
     margin: 1% 0;
     width: auto;
-    font-size: 15px;
 }
 
 }
