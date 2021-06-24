@@ -32,14 +32,13 @@ var randomImage = [
 //Nouvelle partie
 function init() {
 	if (confirm("Nouvelle partie?") == true) {
-		globalP1.textContent = '0';
-		globalP2.textContent = '0';
-		currentP1.textContent = '0';
-		currentP2.textContent = '0';
-		activePlayer.getElementsByTagName('div')[2].innerHTML = '<h2>Current score</h2><h3>0</h3>';
-
+	  globalP1.textContent = "0";
+	  globalP2.textContent = "0";
+	  currentP1.textContent = "0";
+	  currentP2.textContent = "0";
+	  result.innerHTML ="";
 	}
-}
+  }
 //--------------------------------
 function endGame() {
 	activePlayer = (activePlayer == player1) ? player1 : player2;
@@ -50,27 +49,39 @@ function rDice() {
 	var number = Math.floor(Math.random() * randomImage.length);
 	var pointsDice = randomImage.indexOf(randomImage[number]) + 1;
 	//Affichage des points
-	result.innerHTML = '<img src=' + randomImage[number] + '>';
+	result.innerHTML = "<img src=" + randomImage[number] + ">";
 	if (pointsDice == 1) {
-		activePlayer.getElementsByTagName('div')[2].innerHTML = '<h2>Current score</h2><h3>0</h3>';
-		changePlayer();
+	  if (activePlayer == player1) {
+		currentP1.textContent = 0;
+	  } else {
+		currentP2.textContent = 0;
+	  }
+	  changePlayer();
 	} else {
-		activePlayer.getElementsByTagName('div')[2].innerHTML = '<h2>Current score</h2><h3>' + parseInt(pointsDice) + '</h3>';
+	  if (activePlayer == player1) {
+		currentP1.textContent = parseInt(currentP1.textContent) + pointsDice;
+	  } else {
+		currentP2.textContent = parseInt(currentP2.textContent) + pointsDice;
+	  }
 	}
-}
+  }
 //------------------------------
 function changePlayer() {
-	activePlayer.classList.remove('active');
-	activePlayer = (activePlayer == player1) ? player2 : player1;
-	activePlayer.classList.add('active');
-	activePlayer.getElementsByTagName('div')[2].innerHTML = '<h2>Current score</h2><h3>0</h3>';
-}
+	activePlayer.classList.remove("active");
+	activePlayer = activePlayer == player1 ? player2 : player1;
+	activePlayer.classList.add("active");
+  }
 //------------------------------
 function hDice() {
-	activePlayer.getElementsByTagName('div')[1] = activePlayer.getElementsByTagName('div')[1] + activePlayer.getElementsByTagName('div')[2];
-	activePlayer.getElementsByTagName('div')[1].innerHTML = 	activePlayer.getElementsByTagName('div')[1].id.value= '0';
-	activePlayer.getElementsByTagName('div')[2].innerHTML = activePlayer.getElementsByTagName('div')[2].id.value = '0';
-	(activePlayer.getElementsByTagName('div')[2] >= 100) ? endGame(): changePlayer();
+	if (activePlayer == player1) {
+		globalP1.textContent = parseInt(globalP1.textContent) + parseInt(currentP1.textContent);
+		currentP1.textContent =  0;
+		globalP1.textContent >= 10 ? endGame(): changePlayer();
+	} else {
+		globalP2.textContent =parseInt(globalP2.textContent) +parseInt(currentP2.textContent);
+		currentP2.textContent =  0;
+		globalP2.textContent >= 10 ? endGame(): changePlayer();
+	}
 }
 //------------------------------
 newGame.addEventListener("click", init);
