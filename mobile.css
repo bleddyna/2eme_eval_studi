@@ -1,7 +1,13 @@
-@media (min-width: 576px) and (max-width:767px) and (orientation: portrait){
-    h1 { font-size: 2em; }
-    h2 { font-size: 1.5em; }
-    h3 { font-size: 1.17em; }
+@media (min-width: 576px){
+    h1 { 
+        font-size: 2em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    h3 {
+        font-size: 1.17em;
+    }
         #hDice,
         #rDice,
         #new-game button{
