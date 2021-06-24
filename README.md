@@ -30,3 +30,4 @@ weekend du 19-20/06 -> 2h
 22/06 17:15 -> reprise
 22/06 18:28 -> fin de la 6eme journée
 24/06 12:40 -> début de la 7eme journée
+24/06 16:26 -> pause
