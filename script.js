@@ -49,7 +49,7 @@ function rDice() {
 	var number = Math.floor(Math.random() * randomImage.length);
 	var pointsDice = randomImage.indexOf(randomImage[number]) + 1;
 	//Affichage des points
-	result.innerHTML = "<img src=" + randomImage[number] + ">";
+	result.innerHTML = '<img class="w-100 h-100"src=' + randomImage[number] +' >';
 	if (pointsDice == 1) {
 	  if (activePlayer == player1) {
 		currentP1.textContent = 0;
