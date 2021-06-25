@@ -1,4 +1,11 @@
-@media (min-width: 576px) and (orientation: landscape){
+@media screen and (max-width:1024px) and (orientation: landscape){
+    #message{
+        display: none;
+    }
+    .wrapper{
+        width: 100vw;
+        height: 100vh;
+    }
     h1 { 
         font-size: 2em!important;
     }
@@ -8,36 +15,60 @@
     h3 {
         font-size: 1.17em!important;
     }
-#current{
-    height: 15%;
-}
-.active{
+    button{
+        border-radius: 10px!important;
+        font-size: 1.1em!important;
+    }
+    #hDice,
+    #rDice, #new-game button{
+        font-size: 1rem!important;
+        margin: 0;
+        padding: 0;
+    }
+    .active{
+        background:lightblue;
     height: 100%;
+    width: 100%;
+    margin: 0;
+    color: rgb(242, 19, 205);
+    }
+    #result{
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: auto;
+    }
 }
-button{
-    border-radius: 10px!important;
-    font-size: 1.1em!important;
-}
-@media (max-width: 767px) and (min-width:567)and screen and (orientation: portrait){
+@media (max-width: 1024px) and (orientation: portrait){
     *{
+        margin: 0;
+        padding: 0;
+    }
+    body,html{
+        margin: 0;
+        padding: 0;
+    
+    }
+    button,div,h1,h2,h3{
         display: none;
     }
-    #message{
-        display: block;
+    #message,
+    #message h1{
+        display: block!important;
         position: absolute;
         top: 0;
         left: 0;
         color: black;
+        font-family: 'Lato', sans-serif;
     }
     .rectangle{
-        height: 150px;
-        width: 300px;
+        height: 100px;
+        width: 200px;
         border: 2px solid teal;
-        position: absolute;
-        top: 258px;
-        left: 20%;
+        display: inline-flex;
         border-radius: 15% ;
         animation: 1.9s infinite alternate anim;
+        position: relative;
+        top: 150px;
     }
     @keyframes anim {
         from { transform: rotateZ(90deg); }
