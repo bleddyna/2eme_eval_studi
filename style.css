@@ -80,30 +80,3 @@ button:hover{
 #message{
     display: none;
 }
-}
-@media (orientation: portrait) {
-    #player1,.middle,#player2,.button{
-        display: none;
-    }
-    #message{
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        color: black;
-    }
-    .rectangle{
-        height: 150px;
-        width: 300px;
-        border: 2px solid teal;
-        position: absolute;
-        top: 258px;
-        left: 20%;
-        border-radius: 15% ;
-        animation: 1.9s infinite alternate anim;
-    }
-    @keyframes anim {
-        from { transform: rotateZ(90deg); }
-        to   { transform: rotateZ(0deg); }
-      }
-  }

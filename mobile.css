@@ -19,7 +19,7 @@ button{
     font-size: 1.1em!important;
 }
 @media (max-width: 576px) and (orientation: portrait){
-    #player1,.middle,#player2,.button{
+    *{
         display: none;
     }
     #message{
