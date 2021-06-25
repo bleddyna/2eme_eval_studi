@@ -18,7 +18,7 @@ button{
     border-radius: 10px!important;
     font-size: 1.1em!important;
 }
-@media (min-width: 576px) and (max-width:767px) and (orientation: portrait){
+@media (max-width: 576px) and (orientation: portrait){
     #player1,.middle,#player2,.button{
         display: none;
     }
